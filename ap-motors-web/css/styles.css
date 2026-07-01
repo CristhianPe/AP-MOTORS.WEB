@@ -1,0 +1,20 @@
+@layer base {
+  :root {
+    --brand-red: #e31e24;
+    --brand-darkblue: #2e3192;
+    --brand-blue: #29abe2;
+    --brand-dark: #060911;
+  }
+}
+
+.bg-brand-dark { background-color: var(--brand-dark); }
+.bg-brand-slate { background-color: #0f172a; }
+.text-brand-red { color: var(--brand-red); }
+.text-brand-blue { color: var(--brand-blue); }
+.bg-brand-red { background-color: var(--brand-red); }
+
+/* Scrollbar tuning */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #060911; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-red); }

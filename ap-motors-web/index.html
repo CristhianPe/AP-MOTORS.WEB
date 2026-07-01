@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Motors | Tienda de Stock & Soporte Especializado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased">
+
+    <div class="bg-gradient-to-r from-brand-red to-brand-darkblue text-white text-xs md:text-sm font-semibold py-2.5 px-4 text-center relative z-50">
+        <span>⚡ CAMPAÑA DE INTRODUCCIÓN: ¡20% DE DESCUENTO en servicios seleccionados y kits LED! [cite: 12, 19]</span>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center py-2">
+                <svg class="h-14 sm:h-16 w-auto" viewBox="0 0 210 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="12" y="62" fill="#e31e24" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">A</text>
+                    <text x="68" y="62" fill="#2e3192" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">P</text>
+                    <text x="10" y="94" fill="#29abe2" font-family="Montserrat, sans-serif" font-weight="800" font-size="28" letter-spacing="3.5">MOTORS</text>
+                    <path d="M 12,108 Q 18,103 24,108 T 36,108 T 48,108 T 60,108 T 72,108 T 84,108 T 96,108 T 108,108" stroke="#29abe2" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 108,108 Q 114,103 120,108 T 132,108 T 144,108 T 156,108 T 168,108 T 180,108 T 192,108 T 204,108" stroke="#e31e24" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-300">
+                <a href="#tienda" class="text-brand-blue font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span>Tienda Stock</a>
+                <a href="#marcas" class="hover:text-brand-blue transition-colors">Marcas</a>
+                <a href="#taller" class="hover:text-brand-blue transition-colors">Servicios</a>
+                <a href="#cotizador" class="hover:text-brand-blue transition-colors">Cotizador</a>
+                <a href="#sedes" class="hover:text-brand-blue transition-colors">Sedes y Mapas</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="cart-toggle-btn" class="relative p-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl border border-slate-700 transition-all">
+                    <i class="fa-solid fa-basket-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-red text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-[450px] bg-slate-900 border-l border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-brand-dark">
+            <h3 class="font-montserrat font-black text-white text-lg">🛒 Mi Carrito</h3>
+            <button id="cart-close-btn" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+        <div class="p-6 border-t border-slate-800 bg-brand-dark space-y-4">
+            <div class="flex justify-between items-baseline">
+                <span class="text-base font-bold text-white">Total General:</span>
+                <span id="cart-total" class="text-2xl font-montserrat font-black text-brand-blue">S/ 0.00</span>
+            </div>
+            <button id="checkout-btn" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all">
+                <i class="fab fa-whatsapp text-lg"></i> Confirmar Pedido (WhatsApp)
+            </button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden"></div>
+
+    <section id="tienda" class="py-16 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <span class="text-brand-red text-xs font-bold uppercase tracking-widest">Catálogo Actualizado</span>
+                    <h2 class="text-3xl font-montserrat font-black text-white mt-1">Stock Disponible en Tienda [cite: 62]</h2>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="filterStock('todos')" class="px-4 py-2 rounded-xl text-xs font-bold bg-brand-red text-white">Todos</button>
+                    <button onclick="filterStock('motos')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">Motos</button>
+                    <button onclick="filterStock('repuestos')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white">Partes y Accesorios</button>
+                </div>
+            </div>
+            <div id="stock-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+        </div>
+    </section>
+
+    <section id="marcas" class="py-16 bg-brand-slate/30 border-t border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-montserrat font-black text-white">Marcas Estratégicas [cite: 4]</h2>
+                <p class="text-slate-400 text-sm mt-2">Modelos de alta penetración urbana y utilitaria[cite: 6].</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                    <h3 class="text-xl font-bold text-brand-red font-montserrat">RONCO [cite: 6]</h3>
+                    <p class="text-xs text-slate-400 mt-2">Durabilidad extrema y costo accesible en repuestos para terrenos exigentes[cite: 6, 28].</p>
+                </div>
+                <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                    <h3 class="text-xl font-bold text-brand-blue font-montserrat">NEXUS [cite: 7]</h3>
+                    <p class="text-xs text-slate-400 mt-2">Scooters eficientes optimizadas para el traslado diario y mensajería/delivery[cite: 7].</p>
+                </div>
+                <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800">
+                    <h3 class="text-xl font-bold text-indigo-400 font-montserrat">SUMO [cite: 8]</h3>
+                    <p class="text-xs text-slate-400 mt-2">Vehículos confiables ideales para un rápido retorno de inversión en flotas[cite: 8].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cotizador" class="py-16 bg-brand-dark">
+        </section>
+
+    <section id="sedes" class="py-16 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-montserrat font-black text-white">Nuestras Sedes y Mapas en Vivo [cite: 65]</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4">
+                    <h3 class="text-xl font-bold text-white">Sede Bella Unión [cite: 4]</h3>
+                    <p class="text-xs text-slate-400">📍 <strong>Dirección:</strong> Av. Francisco Flores S/N (Frente a agua Don Felipe)[cite: 4, 5].</p>
+                    <iframe class="w-full h-64 rounded-xl border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.34757134262!2d-74.661138!3d-15.545892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCszInNDUuMiJTIDc0wrMzOSczOS43Ilc!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl space-y-4">
+                    <h3 class="text-xl font-bold text-white">Sede Acarí [cite: 5]</h3>
+                    <p class="text-xs text-slate-400">📍 <strong>Dirección:</strong> Av. Enrique Brilka Mz. 62 Lote 5B (Al costado de cevichería Mar de Catalina)[cite: 5, 6].</p>
+                    <iframe class="w-full h-64 rounded-xl border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.23412354123!2d-74.615234!3d-15.432123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCszI1JzU1LjYiUyA3NMKwMzYnNTQuOCJX!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/stock.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
