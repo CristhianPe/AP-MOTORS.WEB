@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Motors | Tienda Online & Soporte Especializado</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons for modern UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#e31e24',       /* Red from logo */
+                            blue: '#29abe2',      /* Light blue from logo */
+                            darkblue: '#2e3192',  /* Purple-blue from logo */
+                            dark: '#060911',      /* Ultra dark background */
+                            slate: '#0f172a',     /* Slate support */
+                            card: '#0e1526'       /* Card deep blue */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-red {
+            box-shadow: 0 0 20px rgba(227, 30, 36, 0.35);
+        }
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(41, 171, 226, 0.3);
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans selection:bg-brand-red selection:text-white antialiased">
+
+    <!-- TOP BAR DE CAMPAÑA -->
+    <div class="bg-gradient-to-r from-brand-red to-brand-darkblue text-white text-xs md:text-sm font-semibold py-2.5 px-4 text-center relative z-50">
+        <span class="inline-flex items-center gap-2">
+            <span class="animate-pulse flex h-2.5 w-2.5 rounded-full bg-white"></span>
+            ⚡ CAMPAÑA DE INTRODUCCIÓN: ¡20% DE DESCUENTO en servicios seleccionados y kits de iluminación LED! 
+        </span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- LOGO OFICIAL RECREADO EN SVG -->
+            <a href="#" class="flex items-center gap-2 py-2">
+                <svg class="h-14 sm:h-16 w-auto" viewBox="0 0 210 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Letter A (Red) -->
+                    <text x="12" y="62" fill="#e31e24" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">A</text>
+                    <!-- Letter P (Dark Blue/Indigo) -->
+                    <text x="68" y="62" fill="#2e3192" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">P</text>
+                    <!-- Text MOTORS (Celeste) -->
+                    <text x="10" y="94" fill="#29abe2" font-family="Montserrat, sans-serif" font-weight="800" font-size="28" letter-spacing="3.5">MOTORS</text>
+                    <!-- Wavy Line Left (Celeste) -->
+                    <path d="M 12,108 Q 18,103 24,108 T 36,108 T 48,108 T 60,108 T 72,108 T 84,108 T 96,108 T 108,108" stroke="#29abe2" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- Wavy Line Right (Red) -->
+                    <path d="M 108,108 Q 114,103 120,108 T 132,108 T 144,108 T 156,108 T 168,108 T 180,108 T 192,108 T 204,108" stroke="#e31e24" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+            <!-- NAVIGATION (DESKTOP) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-slate-300">
+                <a href="#tienda" class="hover:text-brand-blue text-brand-blue transition-colors flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 bg-brand-blue rounded-full"></span>Tienda Stock
+                </a>
+                <a href="#marcas" class="hover:text-brand-blue transition-colors">Nuestras Marcas</a>
+                <a href="#taller" class="hover:text-brand-blue transition-colors">Servicios Mecánicos</a>
+                <a href="#cotizador" class="hover:text-brand-blue transition-colors">Cotizador Express</a>
+                <a href="#sedes" class="hover:text-brand-blue transition-colors">Sedes y Mapas</a>
+            </nav>
+
+            <!-- ACTION BUTTONS: CART + WHATSAPP -->
+            <div class="flex items-center gap-4">
+                <!-- Shopping Cart Icon with Badge -->
+                <button onclick="toggleCartDrawer()" class="relative p-3 bg-brand-slate hover:bg-slate-800 text-white rounded-xl border border-slate-700 transition-all flex items-center justify-center" aria-label="Ver Carrito de Compras">
+                    <i class="fa-solid fa-basket-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-red text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center animate-bounce hidden">0</span>
+                </button>
+
+                <a href="https://wa.me/51966714622?text=Hola%20AP%20Motors%2C%20estoy%20viendo%20su%20página%20web%20y%20quisiera%20hacer%20una%20consulta" target="_blank" class="hidden lg:flex bg-green-600 hover:bg-green-500 transition-all text-white font-bold text-sm px-5 py-3 rounded-xl items-center gap-2 glow-green">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    Soporte Directo
+                </a>
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-400 hover:text-white transition-colors" aria-label="Abrir Menú">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE NAV DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-b border-slate-800 px-6 py-6 transition-all duration-300">
+            <nav class="flex flex-col gap-4 text-base font-semibold">
+                <a href="#tienda" onclick="toggleMobileMenu()" class="text-brand-blue font-bold py-2 border-b border-slate-800">🛒 Tienda (Ver Stock)</a>
+                <a href="#marcas" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-brand-blue py-2 border-b border-slate-800">Nuestras Marcas</a>
+                <a href="#taller" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-brand-blue py-2 border-b border-slate-800">Servicios Mecánicos</a>
+                <a href="#cotizador" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-brand-blue py-2 border-b border-slate-800">Cotizador Express</a>
+                <a href="#sedes" onclick="toggleMobileMenu()" class="text-slate-200 hover:text-brand-blue py-2 border-b border-slate-800">Sedes y Google Maps</a>
+                
+                <div class="pt-4 flex flex-col gap-3">
+                    <button onclick="toggleMobileMenu(); toggleCartDrawer();" class="w-full justify-center bg-brand-red text-white font-bold text-center py-3 rounded-xl flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping"></i> Ver mi Carrito
+                    </button>
+                    <a href="https://wa.me/51966714622" target="_blank" class="w-full justify-center bg-green-600 text-white font-bold text-center py-3 rounded-xl flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Pedidos WhatsApp: +51 966 714 622
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SHOPPING CART DRAWER (SIDEBAR) -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 z-50 w-full sm:w-[450px] bg-brand-slate border-l border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <!-- Header -->
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-brand-dark">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-brand-blue text-lg"></i>
+                <h3 class="font-montserrat font-black text-white text-lg">Mi Carrito de Compras</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List (Scrollable) -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Dynamic elements will be inserted here -->
+            <div id="empty-cart-message" class="text-center py-12 text-slate-500">
+                <span class="text-5xl block mb-4">🛒</span>
+                <p class="font-semibold text-slate-400">Tu carrito está vacío</p>
+                <p class="text-xs mt-1">Explora nuestro stock y añade motocicletas, accesorios o repuestos.</p>
+            </div>
+        </div>
+
+        <!-- Footer / Checkout Area -->
+        <div class="p-6 border-t border-slate-800 bg-brand-dark space-y-4">
+            <div class="flex justify-between items-center text-sm">
+                <span class="text-slate-400">Subtotal:</span>
+                <span id="cart-subtotal" class="font-semibold text-slate-300">S/ 0.00</span>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+                <span class="text-emerald-400 font-semibold">Descuento Campaña (20% en Servicios Incluidos):</span>
+                <span class="text-emerald-400 font-bold">- S/ 0.00</span>
+            </div>
+            <div class="flex justify-between items-baseline pt-2 border-t border-slate-800">
+                <span class="text-base font-bold text-white">Total Estimado:</span>
+                <span id="cart-total" class="text-2xl font-montserrat font-black text-brand-blue">S/ 0.00</span>
+            </div>
+
+            <!-- Delivery/Order info -->
+            <div class="p-3 bg-brand-slate rounded-lg border border-slate-800 text-[11px] text-slate-400 flex gap-2">
+                <i class="fa-solid fa-info-circle text-brand-blue text-sm shrink-0"></i>
+                <p>Al confirmar tu pedido, serás redirigido a WhatsApp del taller oficial para concretar stock, método de pago y sede de recojo (Bella Unión o Acarí).</p>
+            </div>
+
+            <!-- Checkout Button -->
+            <button onclick="checkoutToWhatsApp()" class="w-full py-4 bg-green-600 hover:bg-green-500 transition-all text-white font-bold rounded-xl flex items-center justify-center gap-2 glow-green text-sm sm:text-base">
+                <i class="fab fa-whatsapp text-lg"></i>
+                Confirmar Pedido vía WhatsApp
+            </button>
+        </div>
+    </div>
+    <!-- Cart Overlay backdrop -->
+    <div id="cart-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden"></div>
+
+
+    <!-- SECCIÓN DE STOCK DESTACADA (TIENDA ONLINE EN PRIMER PLANO) -->
+    <section id="tienda" class="py-12 sm:py-20 bg-brand-dark relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#e31e2406,transparent_45%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Banner promocional introductorio -->
+            <div class="mb-12 bg-gradient-to-r from-brand-darkblue/40 via-brand-slate to-brand-red/10 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-brand-red/20 text-brand-red text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-red/30">Stock Disponible</span>
+                    <h2 class="text-2xl sm:text-3xl font-montserrat font-black text-white">Tienda Online de AP Motors</h2>
+                    <p class="text-xs sm:text-sm text-slate-400 max-w-xl">Elige tus motocicletas, repuestos oficiales o accesorios tuning. Agrégalos al carrito y haz tu pedido directamente a nuestro WhatsApp oficial de atención.</p>
+                </div>
+                <!-- Categories Quick Links -->
+                <div class="flex gap-2 shrink-0">
+                    <button onclick="filterStock('todos')" class="stock-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-red text-white border border-brand-red/30">Todos</button>
+                    <button onclick="filterStock('motos')" class="stock-filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 hover:text-white transition-all">Motos</button>
+                    <button onclick="filterStock('repuestos')" class="stock-filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 hover:text-white transition-all">Partes & Accesorios</button>
+                </div>
+            </div>
+
+            <!-- STOCK GRID -->
+            <div id="stock-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- PRODUCT 1 (Motos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="motos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'moto_pistera')"
+                                 alt="Ronco Explorer" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">RONCO</span>
+                            <span class="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-brand-blue text-[11px] font-bold px-2.5 py-1 rounded-md border border-brand-blue/30"><i class="fa-solid fa-mountain mr-1"></i> Todo Terreno</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Ronco Explorer 200cc</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">La moto perfecta para caminos exigentes, chacras, arena y el trabajo diario en la geografía del sur. Motor robusto y repuestos súper económicos.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-red mr-1.5"></i>Garantía AP Motors por 1 año</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-red mr-1.5"></i>Kit de herramientas incluido</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Contado</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 5,900.00</span>
+                        </div>
+                        <button onclick="addToCart(1, 'Ronco Explorer 200cc', 5900, 'motos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2 (Motos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="motos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'scooter')"
+                                 alt="Nexus Urban" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-cyan-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">NEXUS</span>
+                            <span class="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-brand-blue text-[11px] font-bold px-2.5 py-1 rounded-md border border-brand-blue/30"><i class="fa-solid fa-bolt mr-1"></i> Delivery & Scooter</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Nexus Scooter 125cc</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Scooter automático ideal para movilizarte rápido por la ciudad o maximizar tus ganancias en el sector delivery. Consumo ultrabajo de combustible.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-blue mr-1.5"></i>Transmisión automática suave</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-blue mr-1.5"></i>Cargador USB integrado para celular</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Contado</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 4,800.00</span>
+                        </div>
+                        <button onclick="addToCart(2, 'Nexus Scooter 125cc', 4800, 'motos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 3 (Motos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="motos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <!-- High quality delivery/cargo vehicle context -->
+                            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'carguero')"
+                                 alt="Sumo Cargo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-yellow-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">SUMO</span>
+                            <span class="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-brand-blue text-[11px] font-bold px-2.5 py-1 rounded-md border border-brand-blue/30"><i class="fa-solid fa-dolly mr-1"></i> Carga / Trabajo</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Sumo Utilitaria de Carga 150cc</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Diseñada específicamente para pequeños negocios y flotas de carga utilitaria. Excelente relación peso/potencia para transporte pesado.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-darkblue mr-1.5"></i>Parrilla de carga reforzada trasera</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-darkblue mr-1.5"></i>Suspensión trasera de alta resistencia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Contado</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 6,200.00</span>
+                        </div>
+                        <button onclick="addToCart(3, 'Sumo Utilitaria 150cc', 6200, 'motos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 4 (Repuestos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="repuestos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'faro_led')"
+                                 alt="Faro LED" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-brand-blue text-slate-950 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">TUNING</span>
+                            <span class="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-emerald-400 text-[11px] font-bold px-2.5 py-1 rounded-md border border-emerald-500/30"><i class="fa-solid fa-eye mr-1"></i> Alta Visibilidad</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Faro LED Tuning Premium</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Kit de iluminación avanzada con faro principal y exploradoras bicolores de alta potencia. Visibilidad superior en carreteras oscuras.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-blue mr-1.5"></i>Bajo consumo eléctrico en batería</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-blue mr-1.5"></i>Instalación eléctrica gratis en taller</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Taller</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 85.00</span>
+                        </div>
+                        <button onclick="addToCart(4, 'Faro LED Tuning Premium', 85, 'repuestos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 5 (Repuestos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="repuestos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'casco')"
+                                 alt="Casco Seguridad" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-brand-darkblue text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">PROTECCIÓN</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Casco Certificado DOT</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Casco de seguridad con carcasa de policarbonato de alta densidad y certificación de protección DOT internacional.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-darkblue mr-1.5"></i>Interior desmontable y lavable</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-darkblue mr-1.5"></i>Visor antirrayaduras integrado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Oferta</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 150.00</span>
+                        </div>
+                        <button onclick="addToCart(5, 'Casco Certificado DOT', 150, 'repuestos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 6 (Repuestos) -->
+                <div class="stock-card bg-brand-card border border-slate-800 hover:border-brand-blue/30 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-brand-blue/5" data-category="repuestos">
+                    <div>
+                        <div class="relative h-56 bg-slate-950 overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?q=80&w=600&auto=format&fit=crop" 
+                                 onerror="handleImgError(this, 'kit_transmision')"
+                                 alt="Kit Transmisión" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md">REPUESTOS</span>
+                            <span class="absolute top-4 right-4 bg-brand-dark/80 backdrop-blur-sm text-amber-500 text-[11px] font-bold px-2.5 py-1 rounded-md border border-amber-500/30"><i class="fa-solid fa-cog mr-1"></i> Reforzado</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Kit de Transmisión Cadena Reforzada</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Kit de catalina, piñón y cadena reforzada ideal para motos Ronco y Nexus. Mayor resistencia a la fricción de caminos pedregosos.</p>
+                            <div class="space-y-1 text-xs text-slate-500 mb-4">
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-red mr-1.5"></i>Duración extendida certificada</span>
+                                <span class="block"><i class="fa-solid fa-circle-check text-brand-red mr-1.5"></i>Acero templado de alta resistencia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-slate-900/60 flex items-center justify-between gap-4 mt-auto">
+                        <div>
+                            <span class="text-[10px] text-slate-500 block uppercase font-semibold">Precio Oferta</span>
+                            <span class="text-xl font-montserrat font-black text-white">S/ 120.00</span>
+                        </div>
+                        <button onclick="addToCart(6, 'Kit Transmisión Reforzada', 120, 'repuestos')" class="px-4 py-2.5 bg-brand-red hover:bg-red-700 transition-colors text-white font-bold rounded-xl text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-cart-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- HERO/INICIO DE SERVICIOS -->
+    <section id="inicio" class="relative min-h-[75vh] flex items-center overflow-hidden py-16 md:py-24 bg-gradient-to-b from-brand-slate/40 to-brand-dark">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#e31e240a,transparent_45%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red text-xs md:text-sm font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-motorcycle"></i> Soporte Directo en el Sur del Perú
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-montserrat font-black text-white leading-[1.1] tracking-tight">
+                        Servicio Técnico de<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-brand-blue to-teal-400">Alta Confianza.</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        ¿Tu herramienta de trabajo necesita mantenimiento? En <strong class="text-white font-semibold">AP Motors</strong> no solo te equipamos, sino que cuidamos de tu unidad en tiempo récord para que nunca pares de producir.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#cotizador" class="w-full sm:w-auto text-center px-8 py-4 rounded-xl bg-brand-red hover:bg-red-700 text-white font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-red/30 font-montserrat">
+                            <i class="fa-solid fa-calculator mr-2"></i>Calcular Presupuesto Técnico
+                        </a>
+                        <a href="#sedes" class="w-full sm:w-auto text-center px-8 py-4 rounded-xl bg-brand-slate hover:bg-slate-800 text-white font-semibold transition-all border border-slate-700">
+                            ¿Cómo llegar?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <!-- Dynamic interactive summary -->
+                    <div class="relative bg-brand-slate border border-slate-800 rounded-3xl p-6 shadow-2xl backdrop-blur-md">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest text-center mb-4">¿Por qué AP Motors es el One-Stop Shop ideal?</h4>
+                        <div class="space-y-4">
+                            <div class="p-3.5 bg-brand-dark/50 rounded-xl border border-slate-800/80 flex items-center gap-3">
+                                <div class="w-10 h-10 bg-brand-red/10 text-brand-red rounded-lg flex items-center justify-center font-bold text-lg">🛡️</div>
+                                <div class="text-left">
+                                    <h5 class="text-sm font-bold text-white">Garantía Real</h5>
+                                    <p class="text-xs text-slate-400">Todos nuestros repuestos y reparaciones están respaldados por el taller oficial.</p>
+                                </div>
+                            </div>
+                            <div class="p-3.5 bg-brand-dark/50 rounded-xl border border-slate-800/80 flex items-center gap-3">
+                                <div class="w-10 h-10 bg-brand-blue/10 text-brand-blue rounded-lg flex items-center justify-center font-bold text-lg">⚙️</div>
+                                <div class="text-left">
+                                    <h5 class="text-sm font-bold text-white">Repuestos Listos</h5>
+                                    <p class="text-xs text-slate-400">No esperes semanas. Contamos con almacén propio multimarca.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PORTAFOLIO DE MARCAS ALIADAS (INFORMACIÓN) -->
+    <section id="marcas" class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-blue mb-2">Marcas de Penetración Líder</h2>
+                <p class="text-3xl sm:text-4xl font-montserrat font-black text-white">Distribuidores Autorizados en el Sur</p>
+                <p class="text-slate-400 mt-2">Nuestras tres firmas aliadas representan el balance perfecto entre economía y rendimiento de trabajo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- RONCO -->
+                <div class="bg-brand-slate border border-slate-850 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-red/30 transition-all duration-300">
+                    <div>
+                        <div class="text-red-500 text-3xl font-black font-montserrat italic mb-4">RONCO</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Resistencia y bajo costo</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">Reconocida en todo el Perú por su asombrosa durabilidad de chasis y motor en todo terreno, chacras y zonas difíciles. Repuestos súper accesibles.</p>
+                    </div>
+                    <a href="#tienda" class="text-brand-red font-semibold text-xs flex items-center gap-1.5 hover:underline">Ver stock Ronco en tienda <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- NEXUS -->
+                <div class="bg-brand-slate border border-slate-850 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-blue/30 transition-all duration-300">
+                    <div>
+                        <div class="text-brand-blue text-3xl font-black font-montserrat italic mb-4">NEXUS</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Eficiencia y movilidad diaria</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">Especialistas en scooters urbanos de transmisión automática y motocicletas extremadamente livianas. Ideales para mensajería, reparto y entrega rápida.</p>
+                    </div>
+                    <a href="#tienda" class="text-brand-blue font-semibold text-xs flex items-center gap-1.5 hover:underline">Ver stock Nexus en tienda <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- SUMO -->
+                <div class="bg-brand-slate border border-slate-850 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-darkblue/30 transition-all duration-300">
+                    <div>
+                        <div class="text-indigo-400 text-3xl font-black font-montserrat italic mb-4">SUMO</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tu mejor opción comercial</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">Vehículos de entrada confiables y de bajo costo. Ideales para armar flotas de entrega o para conductores que compran su primera herramienta de trabajo.</p>
+                    </div>
+                    <a href="#tienda" class="text-brand-darkblue font-semibold text-xs flex items-center gap-1.5 hover:underline">Ver stock Sumo en tienda <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UNIDADES DE SERVICIO Y POSTVENTA (TALLER) -->
+    <section id="taller" class="py-20 bg-brand-slate">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-blue">Servicio Especializado</h2>
+                    <h3 class="text-3xl sm:text-4xl font-montserrat font-black text-white">Mecánica de Confianza</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        Olvídate de mecánicos callejeros sin garantía. En AP Motors cada intervención técnica es registrada y garantizada. Cuidamos tu inversión en cada kilómetro.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 p-1 bg-brand-red/10 rounded text-brand-red text-xs"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Diagnóstico Profesional</h4>
+                                <p class="text-xs text-slate-400">Detección precisa de fallas eléctricas, de embrague y de compresión de motor.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 p-1 bg-brand-red/10 rounded text-brand-red text-xs"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Tuning de Seguridad LED Avanzada</h4>
+                                <p class="text-xs text-slate-400">Mejora el alcance de tus faros con iluminación potente para proteger tu vida de noche.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-brand-dark/90 border border-slate-800 p-6 rounded-2xl">
+                        <div class="text-3xl mb-4">🔧</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Mantenimiento Periódico</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">Calibración de válvulas, limpieza de inyectores o carburadores, y afinamiento técnico completo para restaurar la fuerza de tu motor.</p>
+                    </div>
+
+                    <div class="bg-brand-dark/90 border border-slate-800 p-6 rounded-2xl">
+                        <div class="text-3xl mb-4">💡</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Vanguardia LED y Protección</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">Venta e instalación de focos LED, exploradoras dobles y protectores metálicos anticaídas para tu carrocería.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- COTIZADOR INTERACTIVO CON ENVÍO DINÁMICO A WHATSAPP -->
+    <section id="cotizador" class="py-20 bg-brand-dark relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#e31e2406,transparent_40%)]"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-brand-slate border border-slate-800 rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                <div class="bg-gradient-to-r from-brand-red via-brand-darkblue to-brand-darkblue p-8 text-center text-white">
+                    <span class="bg-white/10 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/20">Cotizador de Servicios</span>
+                    <h3 class="text-2xl sm:text-3xl font-montserrat font-black mt-3">Calcula el Costo de tu Servicio</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm mt-1">Elige tus preferencias y obtén un estimado al instante con el 20% de descuento incluido.</p>
+                </div>
+
+                <div class="p-6 sm:p-10 space-y-6">
+                    <!-- Form Step 1: Tipo de Motocicleta -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">1. Selecciona tu Tipo de Vehículo</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="moto_type" value="Scooter / Urbana" checked onchange="calculateQuote()" class="peer sr-only">
+                                <div class="peer-checked:border-brand-red peer-checked:bg-brand-red/5 border border-slate-800 bg-brand-dark p-4 rounded-xl text-center transition-all hover:border-slate-700">
+                                    <span class="text-xl block mb-1">🛵</span>
+                                    <span class="text-xs font-semibold text-white block">Scooter / Urbana</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="moto_type" value="Pistera" onchange="calculateQuote()" class="peer sr-only">
+                                <div class="peer-checked:border-brand-red peer-checked:bg-brand-red/5 border border-slate-800 bg-brand-dark p-4 rounded-xl text-center transition-all hover:border-slate-700">
+                                    <span class="text-xl block mb-1">🏍️</span>
+                                    <span class="text-xs font-semibold text-white block">Pistera / Deportiva</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="moto_type" value="Chacarera / Todo Terreno" onchange="calculateQuote()" class="peer sr-only">
+                                <div class="peer-checked:border-brand-red peer-checked:bg-brand-red/5 border border-slate-800 bg-brand-dark p-4 rounded-xl text-center transition-all hover:border-slate-700">
+                                    <span class="text-xl block mb-1">🏔️</span>
+                                    <span class="text-xs font-semibold text-white block">Chacarera / Offroad</span>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="moto_type" value="Mototaxi / Carguero" onchange="calculateQuote()" class="peer sr-only">
+                                <div class="peer-checked:border-brand-red peer-checked:bg-brand-red/5 border border-slate-800 bg-brand-dark p-4 rounded-xl text-center transition-all hover:border-slate-700">
+                                    <span class="text-xl block mb-1">🛺</span>
+                                    <span class="text-xs font-semibold text-white block">Mototaxi / Carguero</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Form Step 2: Tipo de Servicio -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">2. Selecciona el Servicio Necesario</label>
+                        <select id="service_select" onchange="calculateQuote()" class="w-full bg-brand-dark border border-slate-800 text-white rounded-xl p-4 text-sm focus:border-brand-blue focus:outline-none">
+                            <option value="Mantenimiento Preventivo Básico" data-price="45">Mantenimiento Preventivo Básico (Cambio de aceite, ajuste de frenos y cadena)</option>
+                            <option value="Afinamiento Completo" data-price="95">Afinamiento Completo (Limpieza de carburador, válvulas, bujía nueva)</option>
+                            <option value="Diagnóstico Eléctrico Completo" data-price="60">Diagnóstico del Sistema Eléctrico & Batería</option>
+                            <option value="Instalación de Kit Iluminación LED Tuning" data-price="80">Instalación de Kit Iluminación LED & Faros Auxiliares de Seguridad</option>
+                            <option value="Reparación Completa de Motor" data-price="180">Reparación Integral de Motor / Embrague</option>
+                        </select>
+                    </div>
+
+                    <!-- Form Step 3: Nombre del Cliente -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">3. Ingresa tu Nombre (Opcional)</label>
+                        <input id="client_name" type="text" placeholder="Ej. Juan Carlos Ramos" oninput="calculateQuote()" class="w-full bg-brand-dark border border-slate-800 text-white rounded-xl p-4 text-sm focus:border-brand-blue focus:outline-none">
+                    </div>
+
+                    <!-- RESULT PANEL -->
+                    <div class="bg-brand-dark border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <span class="text-xs text-slate-400 block font-semibold uppercase tracking-widest">Total Estimado en Taller:</span>
+                            <div class="flex items-baseline gap-2 mt-1">
+                                <span class="text-slate-400 line-through text-lg" id="original-price">S/ 45.00</span>
+                                <span class="text-3xl font-montserrat font-black text-brand-blue" id="final-price">S/ 36.00</span>
+                                <span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-500/20">Ahorro 20% aplicado</span>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-1">Sujeto a variación según la marca y cilindrada de tu moto.</p>
+                        </div>
+
+                        <a id="whatsapp-quote-btn" href="#" target="_blank" class="w-full sm:w-auto px-6 py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 glow-green transition-all transform hover:-translate-y-0.5">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            Reservar Turno vía WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UBICACIÓN Y SEDES (INTERACTIVO CON MAPAS INCORPORADOS) -->
+    <section id="sedes" class="py-20 bg-brand-slate border-t border-b border-slate-850">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-blue mb-2">Ubicación Estratégica</h2>
+                <p class="text-3xl sm:text-4xl font-montserrat font-black text-white">Nuestras Sedes de Atención</p>
+                <p class="text-slate-400 mt-2">Encuéntranos en zonas de alta afluencia comercial con espacios seguros para estacionar tu motocicleta.</p>
+            </div>
+
+            <!-- TAB SELECTOR FOR SEDES -->
+            <div class="flex justify-center mb-10">
+                <div class="bg-brand-dark p-1.5 rounded-xl border border-slate-800 flex gap-1">
+                    <button onclick="switchSede('bella_union')" id="btn-sede-bu" class="sede-toggle-btn px-6 py-2.5 rounded-lg text-sm font-bold transition-all bg-brand-red text-white glow-red">
+                        Sede Bella Unión
+                    </button>
+                    <button onclick="switchSede('acari')" id="btn-sede-acari" class="sede-toggle-btn px-6 py-2.5 rounded-lg text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                        Sede Acarí
+                    </button>
+                </div>
+            </div>
+
+            <!-- SEDE CONTENT VIEW -->
+            <div class="bg-brand-dark border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                
+                <!-- BELLA UNION DETAILS + REAL MAP EMBED -->
+                <div id="sede-info-bu" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-red/10 border border-brand-red/30 text-brand-red rounded-full text-xs font-bold uppercase tracking-wide">
+                            📍 Sede Principal
+                        </div>
+                        <h3 class="text-3xl font-montserrat font-black text-white">Sede Bella Unión</h3>
+                        
+                        <div class="space-y-4 text-sm sm:text-base">
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-blue">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Dirección Exacta:</span>
+                                    <strong class="text-white">Av. Francisco Flores S/N</strong>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-red">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Referencia Local:</span>
+                                    <strong class="text-brand-blue font-semibold">Frente a agua Don Felipe</strong>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-blue">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Horario de Atención:</span>
+                                    <strong class="text-slate-200">Lunes a Sábado: 8:00 AM - 7:00 PM</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                            <a href="https://maps.google.com/?q=Bella+Unión+Av+Francisco+Flores" target="_blank" class="px-6 py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-location-arrow"></i> Navegar por GPS
+                            </a>
+                            <a href="https://wa.me/51904768799?text=Hola%20AP%20Motors%20Sede%20Bella%20Unión%2C%20quisiera%20consultar%20sobre%20su%20ubicación" target="_blank" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-center text-sm transition-colors border border-slate-700 flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Chat de Sede
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GOOGLE MAPS EMBEDDED MAP FOR BELLA UNIÓN -->
+                    <div class="lg:col-span-7 bg-brand-slate rounded-2xl border border-slate-800 p-4">
+                        <div class="w-full h-[350px] rounded-xl overflow-hidden shadow-inner relative">
+                            <!-- Real iframe embedding for Bella Unión region -->
+                            <iframe 
+                                class="w-full h-full border-0 rounded-xl"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15254.498846142171!2d-74.673892!3d-15.428611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91157f12e8df31cb%3A0xc6cb5aee1caee1e8!2sBella%20Uni%C3%B3n!5e0!3m2!1ses-419!2spe!4v1700000000000!5m2!1ses-419!2spe" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACARI DETAILS + REAL MAP EMBED -->
+                <div id="sede-info-acari" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-blue/10 border border-brand-blue/30 text-brand-blue rounded-full text-xs font-bold uppercase tracking-wide">
+                            📍 Sede Alterna
+                        </div>
+                        <h3 class="text-3xl font-montserrat font-black text-white">Sede Acarí</h3>
+                        
+                        <div class="space-y-4 text-sm sm:text-base">
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-blue">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Dirección Exacta:</span>
+                                    <strong class="text-white">Av. Enrique Brilka Mz. 62 Lote 5B</strong>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-red">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Referencia Local:</span>
+                                    <strong class="text-brand-red font-semibold">Al costado de la cevichería "Mar de Catalina"</strong>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="mt-1 p-1 bg-brand-slate rounded text-brand-blue">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <span class="text-slate-400 block text-xs">Horario de Atención:</span>
+                                    <strong class="text-slate-200">Lunes a Sábado: 8:00 AM - 7:00 PM</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                            <a href="https://maps.google.com/?q=Av.+Enrique+Brilka,+Acarí" target="_blank" class="px-6 py-3.5 bg-brand-red hover:bg-red-700 text-white font-bold rounded-xl text-center text-sm transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-location-arrow"></i> Navegar por GPS
+                            </a>
+                            <a href="https://wa.me/51966714622?text=Hola%20AP%20Motors%20Sede%20Acarí%2C%20quisiera%20hacer%20una%20consulta" target="_blank" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-center text-sm transition-colors border border-slate-700 flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Chat de Sede
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GOOGLE MAPS EMBEDDED MAP FOR ACARÍ -->
+                    <div class="lg:col-span-7 bg-brand-slate rounded-2xl border border-slate-800 p-4">
+                        <div class="w-full h-[350px] rounded-xl overflow-hidden shadow-inner relative">
+                            <!-- Real iframe embedding for Acarí region -->
+                            <iframe 
+                                class="w-full h-full border-0 rounded-xl"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7621.579177265215!2d-74.618611!3d-15.4325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91157ebe0d8c03c5%3A0x63351f03407bbdfd!2sAcar%C3%AD!5e0!3m2!1ses-419!2spe!4v1700000000001!5m2!1ses-419!2spe" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER / PIE DE PÁGINA -->
+    <footer class="bg-brand-dark text-slate-400 border-t border-slate-850 pt-16 pb-8 relative overflow-hidden">
+        
+        <!-- Interactive quick banner CTA in footer -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="bg-gradient-to-r from-brand-slate to-brand-dark border border-slate-800 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                <div class="space-y-3 text-center md:text-left">
+                    <h3 class="text-2xl sm:text-3xl font-montserrat font-black text-white">¿Quieres cotizar repuestos específicos?</h3>
+                    <p class="text-slate-400 max-w-xl text-sm sm:text-base">Escríbenos directamente indicando la marca y modelo de tu moto para darte soporte inmediato.</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <a href="https://wa.me/51966714622?text=Hola%20AP%20Motors%20quisiera%20consultar%20un%20repuesto%20específico" target="_blank" class="w-full sm:w-auto px-6 py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 glow-green transition-all">
+                        <i class="fab fa-whatsapp text-lg"></i> Enviar Consulta Directa
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Grid -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-slate-900">
+            <!-- Col 1 -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <svg class="h-10 w-auto" viewBox="0 0 210 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="12" y="62" fill="#e31e24" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">A</text>
+                        <text x="68" y="62" fill="#2e3192" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" font-style="italic" letter-spacing="-4">P</text>
+                        <text x="10" y="94" fill="#29abe2" font-family="Montserrat, sans-serif" font-weight="800" font-size="28" letter-spacing="3.5">MOTORS</text>
+                        <path d="M 12,108 Q 18,103 24,108 T 36,108 T 48,108 T 60,108 T 72,108 T 84,108 T 96,108 T 108,108" stroke="#29abe2" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <path d="M 108,108 Q 114,103 120,108 T 132,108 T 144,108 T 156,108 T 168,108 T 180,108 T 192,108 T 204,108" stroke="#e31e24" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <p class="text-xs leading-relaxed text-slate-500">
+                    Comercialización de motocicletas multimarca, repuestos originales garantizados, accesorios de protección y mantenimiento preventivo/correctivo en el sur del país.
+                </p>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="space-y-4">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white">Nuestras Marcas</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#marcas" class="hover:text-brand-blue transition-colors">RONCO Motocicletas</a></li>
+                    <li><a href="#marcas" class="hover:text-brand-blue transition-colors">NEXUS Scooters Urbanas</a></li>
+                    <li><a href="#marcas" class="hover:text-brand-blue transition-colors">SUMO Primeros Usuarios</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="space-y-4">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white">Unidades de Servicio</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#taller" class="hover:text-brand-blue transition-colors">Servicio Técnico Profesional</a></li>
+                    <li><a href="#taller" class="hover:text-brand-blue transition-colors">Stock Propio de Repuestos</a></li>
+                    <li><a href="#taller" class="hover:text-brand-blue transition-colors">Tuning LED Avanzado</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="space-y-4">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white">Contacto Directo</h4>
+                <ul class="space-y-2 text-xs text-slate-500">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-red"></i> +51 904 768 799 (Bella Unión)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-red"></i> +51 966 714 622 (Acarí)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-blue"></i> contacto@apmotors.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+            <span>© 2026 AP Motors. Todos los derechos reservados.</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-slate-450">Políticas de Privacidad</a>
+                <a href="#" class="hover:text-slate-450">Términos de Servicio del Taller</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- MAIN INTERACTIVE SHOPPING CART & SITE SCRIPTS -->
+    <script>
+        // GLOBAL CART STATE
+        let cart = [];
+
+        // FALLBACK SVGS FOR BROKEN IMAGES
+        function handleImgError(img, type) {
+            img.onerror = null; // Prevent infinite loops
+            
+            // Generate professional matching illustrative placeholders
+            if (type === 'moto_pistera') {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><circle cx='25' cy='42' r='11' stroke='%23e31e24' stroke-width='3'/><circle cx='75' cy='42' r='11' stroke='%23e31e24' stroke-width='3'/><path d='M25 42 L42 42 L52 28 L35 28 Z' stroke='%2329abe2' stroke-width='2.5'/><text x='50%25' y='25%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='5' font-family='sans-serif'>RONCO EXPLORER</text></svg>";
+            } else if (type === 'scooter') {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><circle cx='25' cy='42' r='8' stroke='%2329abe2' stroke-width='3'/><circle cx='75' cy='42' r='8' stroke='%2329abe2' stroke-width='3'/><path d='M20 42 L42 42 L48 20 L30 20 Z' stroke='%23e31e24' stroke-width='2.5'/><text x='50%25' y='25%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='5' font-family='sans-serif'>NEXUS SCOOTER</text></svg>";
+            } else if (type === 'carguero') {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><circle cx='25' cy='42' r='10' stroke='%232e3192' stroke-width='3'/><circle cx='75' cy='42' r='10' stroke='%232e3192' stroke-width='3'/><path d='M15 25 L55 25 L55 42 L15 42 Z' stroke='%23e31e24' stroke-width='2.5'/><text x='50%25' y='18%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='5' font-family='sans-serif'>SUMO CARGO</text></svg>";
+            } else if (type === 'faro_led') {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><circle cx='50' cy='30' r='15' fill='%2329abe2' opacity='0.3'/><circle cx='50' cy='30' r='8' stroke='%2329abe2' stroke-width='3' fill='white'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='4' font-family='sans-serif'>FARO TUNING LED</text></svg>";
+            } else if (type === 'casco') {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><path d='M30 40 C30 20, 70 20, 70 40 Z' fill='%232e3192'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='4' font-family='sans-serif'>CASCO SEGURIDAD DOT</text></svg>";
+            } else {
+                img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 100 60' fill='%230e1526'><rect width='100' height='60' fill='%230a0f1d'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='4' font-family='sans-serif'>REPUESTO REFORZADO</text></svg>";
+            }
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-2xl";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-2xl";
+            }
+        }
+
+        // BRANDS INTERACTIVE FILTER TABS (FOR STOCK)
+        function filterStock(category) {
+            // Update active state in tabs buttons
+            const buttons = document.querySelectorAll('.stock-filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "stock-filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 bg-slate-900 border border-slate-800 hover:text-white transition-all";
+            });
+
+            // Highlight chosen button
+            event.currentTarget.className = "stock-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-red text-white border border-brand-red/30";
+
+            // Filter cards
+            const cards = document.querySelectorAll('.stock-card');
+            cards.forEach(card => {
+                if (category === 'todos' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // SEDES SWITCHING ENGINE
+        function switchSede(sede) {
+            // Toggle active state in buttons
+            const buttons = document.querySelectorAll('.sede-toggle-btn');
+            buttons.forEach(btn => {
+                btn.className = "sede-toggle-btn px-6 py-2.5 rounded-lg text-sm font-semibold text-slate-400 hover:text-white transition-all";
+            });
+
+            // Toggle active layouts
+            const buInfo = document.getElementById('sede-info-bu');
+            const acariInfo = document.getElementById('sede-info-acari');
+
+            if (sede === 'bella_union') {
+                document.getElementById('btn-sede-bu').className = "sede-toggle-btn px-6 py-2.5 rounded-lg text-sm font-bold transition-all bg-brand-red text-white glow-red";
+                buInfo.classList.remove('hidden');
+                acariInfo.classList.add('hidden');
+            } else {
+                document.getElementById('btn-sede-acari').className = "sede-toggle-btn px-6 py-2.5 rounded-lg text-sm font-bold transition-all bg-brand-red text-white glow-red";
+                buInfo.classList.add('hidden');
+                acariInfo.classList.remove('hidden');
+            }
+        }
+
+        // REAL-TIME QUOTE CALCULATOR WITH DYNAMIC DISCOUNT
+        function calculateQuote() {
+            // Get values
+            const vehicleRadio = document.querySelector('input[name="moto_type"]:checked');
+            const vehicle = vehicleRadio ? vehicleRadio.value : 'Motocicleta';
+            
+            const serviceSelect = document.getElementById('service_select');
+            const serviceName = serviceSelect.value;
+            const originalPrice = parseFloat(serviceSelect.options[serviceSelect.selectedIndex].getAttribute('data-price'));
+            
+            const clientNameInput = document.getElementById('client_name');
+            const clientName = clientNameInput.value.trim() || 'Cliente Distinguido';
+
+            // Calculate 20% Discount
+            const discountPercentage = 0.20;
+            const finalPrice = originalPrice * (1 - discountPercentage);
+
+            // Update DOM Elements
+            document.getElementById('original-price').innerText = `S/ ${originalPrice.toFixed(2)}`;
+            document.getElementById('final-price').innerText = `S/ ${finalPrice.toFixed(2)}`;
+
+            // Create Dynamic WhatsApp URL (Directed to Acarí as main number)
+            const textHeader = `Hola AP Motors! 🏍️%0AQuisiera agendar una cita para mi servicio estimado.%0A%0A`;
+            const textBody = `*Detalles de Cotización de Servicio:*%0A• *Cliente:* ${encodeURIComponent(clientName)}%0A• *Vehículo:* ${encodeURIComponent(vehicle)}%0A• *Servicio:* ${encodeURIComponent(serviceName)}%0A• *Precio Regular:* S/ ${originalPrice.toFixed(2)}%0A• *Precio con 20% desc.:* S/ ${finalPrice.toFixed(2)}%0A%0A¡Por favor confirmen disponibilidad!`;
+            
+            const whatsappNumber = "51966714622"; 
+            
+            const fullLink = `https://wa.me/${whatsappNumber}?text=${textHeader}${textBody}`;
+            document.getElementById('whatsapp-quote-btn').href = fullLink;
+        }
+
+        // === SHOPPING CART ACTIONS ===
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function addToCart(id, name, price, category) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    category: category,
+                    quantity: 1
+                });
+            }
+            
+            updateCartUI();
+            
+            // Highlight basket with quick pop
+            const badge = document.getElementById('cart-badge');
+            badge.classList.remove('hidden');
+            badge.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+            
+            // Show custom elegant alert notification
+            showNotification(`¡${name} añadido al carrito!`);
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            const badge = document.getElementById('cart-badge');
+            
+            // Clear current items (except the empty message template if it is removed)
+            container.innerHTML = '';
+            
+            if (cart.length === 0) {
+                container.appendChild(emptyMessage);
+                badge.classList.add('hidden');
+                document.getElementById('cart-subtotal').innerText = 'S/ 0.00';
+                document.getElementById('cart-total').innerText = 'S/ 0.00';
+                return;
+            }
+            
+            badge.classList.remove('hidden');
+            badge.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = "bg-brand-dark/60 border border-slate-800 p-4 rounded-xl flex justify-between items-center gap-4";
+                itemDiv.innerHTML = `
+                    <div class="space-y-1">
+                        <h4 class="text-sm font-bold text-white">${item.name}</h4>
+                        <p class="text-xs text-brand-blue font-semibold">S/ ${item.price.toFixed(2)} c/u</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center border border-slate-700 rounded-lg bg-brand-dark overflow-hidden">
+                            <button onclick="changeQuantity(${item.id}, -1)" class="px-2.5 py-1 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">-</button>
+                            <span class="px-2 text-xs font-semibold text-white min-w-[20px] text-center">${item.quantity}</span>
+                            <button onclick="changeQuantity(${item.id}, 1)" class="px-2.5 py-1 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="p-1.5 text-slate-500 hover:text-brand-red hover:bg-slate-800 rounded transition-all">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(itemDiv);
+            });
+
+            // Update footer metrics
+            document.getElementById('cart-subtotal').innerText = `S/ ${subtotal.toFixed(2)}`;
+            document.getElementById('cart-total').innerText = `S/ ${subtotal.toFixed(2)}`;
+        }
+
+        function changeQuantity(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (!item) return;
+            
+            item.quantity += amount;
+            if (item.quantity <= 0) {
+                removeFromCart(id);
+            } else {
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        // GENERATE AUTOMATIC WHATSAPP ORDER REDIRECTION
+        function checkoutToWhatsApp() {
+            if (cart.length === 0) {
+                showNotification("¡Tu carrito está vacío! Añade productos para cotizar.");
+                return;
+            }
+
+            const targetWhatsApp = "51966714622"; // User-specified direct checkout WhatsApp number
+            
+            let messageText = `🏍️ *PEDIDO DE STOCK - AP MOTORS* 🏍️%0A`;
+            messageText += `Hola, acabo de armar mi pedido de stock desde la tienda online. Aquí están los detalles:%0A%0A`;
+
+            let idx = 1;
+            let totalGeneral = 0;
+
+            cart.forEach(item => {
+                const totalItem = item.price * item.quantity;
+                totalGeneral += totalItem;
+                messageText += `*${idx}.* ${encodeURIComponent(item.name)}%0A`;
+                messageText += `   • Cantidad: ${item.quantity}%0A`;
+                messageText += `   • Precio Unitario: S/ ${item.price.toFixed(2)}%0A`;
+                messageText += `   • Subtotal: *S/ ${totalItem.toFixed(2)}*%0A%0A`;
+                idx++;
+            });
+
+            messageText += `----------------------------%0A`;
+            messageText += `*TOTAL ESTIMADO:* S/ ${totalGeneral.toFixed(2)}%0A`;
+            messageText += `----------------------------%0A%0A`;
+            messageText += `¿Tienen disponibilidad de estos artículos para recoger en Bella Unión o en Acarí? Quedo atento a su respuesta para coordinar pago.`;
+
+            const finalLink = `https://wa.me/${targetWhatsApp}?text=${messageText}`;
+            window.open(finalLink, '_blank');
+        }
+
+        // NOTIFICATION POPUP UTILITY (No alert() fallback)
+        function showNotification(text) {
+            // Check if alert element already exists
+            let toast = document.getElementById('custom-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'custom-toast';
+                toast.className = "fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50 bg-brand-slate border border-brand-blue text-slate-100 px-6 py-3.5 rounded-xl text-sm font-semibold shadow-2xl flex items-center gap-2 transition-all duration-300 opacity-0 scale-90";
+                document.body.appendChild(toast);
+            }
+            
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i> ${text}`;
+            toast.classList.remove('opacity-0', 'scale-90', 'hidden');
+            toast.classList.add('opacity-100', 'scale-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'scale-100');
+                toast.classList.add('opacity-0', 'scale-90');
+            }, 3000);
+        }
+
+        // INITIAL ONLOAD TRIGGERS
+        window.onload = function() {
+            calculateQuote();
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
