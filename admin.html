@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Administración — AP Motors</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="icon" type="image/png" href="assets/img/logo-apmotors.png">
+  <meta name="theme-color" content="#0a1547">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('apmotors-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+</head>
+<body class="admin">
+
+  <!-- ======= Barra superior ======= -->
+  <header class="a-top">
+    <div class="a-top__brand">
+      <img src="assets/img/logo-apmotors.png" alt="Logo" class="a-top__logo">
+      <div>
+        <h1>Panel de Administración</h1>
+        <div class="a-top__meta">
+          <span id="aSiteName">AP Motors</span>
+          <span class="a-sync-badge" id="aSyncBadge">🟢 Conectado (Firestore)</span>
+        </div>
+      </div>
+    </div>
+    <div class="a-top__actions">
+      <span class="a-top__user" id="aUserEmail"></span>
+      <button class="a-btn a-btn--ghost" id="aThemeBtn" aria-label="Cambiar tema claro/oscuro">🌙 Tema</button>
+      <a class="a-btn a-btn--ghost" href="index.html" target="_blank" rel="noopener">👁️ Ver tienda</a>
+      <button class="a-btn a-btn--danger-ghost" id="aReset">↺ Restablecer datos</button>
+      <button class="a-btn a-btn--danger-ghost" id="aLogout">🚪 Salir</button>
+    </div>
+  </header>
+
+  <div class="a-layout">
+    <!-- ======= Sidebar ======= -->
+    <aside class="a-side">
+      <nav class="a-nav">
+        <button class="a-nav__item active" data-tab="ajustes"><span>⚙️</span> Ajustes generales</button>
+        <button class="a-nav__item" data-tab="promotions"><span>🔥</span> Promociones</button>
+        <button class="a-nav__item" data-tab="categories"><span>🏷️</span> Categorías</button>
+        <button class="a-nav__item" data-tab="brands"><span>🏍️</span> Marcas</button>
+        <button class="a-nav__item" data-tab="products"><span>📦</span> Tienda / Stock</button>
+        <button class="a-nav__item" data-tab="services"><span>🛠️</span> Servicios</button>
+        <button class="a-nav__item" data-tab="tuning"><span>💡</span> Tuning</button>
+        <button class="a-nav__item" data-tab="branches"><span>📍</span> Sedes</button>
+      </nav>
+      <p class="a-side__note">Los cambios se guardan en Firebase Firestore y se reflejan en tiempo real en la tienda pública.</p>
+    </aside>
+
+    <!-- ======= Contenido ======= -->
+    <main class="a-main" id="aMain">
+      <!-- Renderizado por JS -->
+    </main>
+  </div>
+
+  <!-- ======= Modal de formulario ======= -->
+  <div class="a-modal" id="aModal" hidden>
+    <div class="a-modal__overlay" data-close></div>
+    <div class="a-modal__dialog" role="dialog" aria-modal="true">
+      <div class="a-modal__head">
+        <h2 id="aModalTitle">Editar</h2>
+        <button class="a-modal__close" data-close>✕</button>
+      </div>
+      <div class="a-modal__body" id="aModalBody"></div>
+      <div class="a-modal__foot">
+        <button class="a-btn a-btn--ghost" data-close>Cancelar</button>
+        <button class="a-btn a-btn--primary" id="aModalSave">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Confirmación de eliminación ======= -->
+  <div class="a-modal" id="aConfirm" hidden>
+    <div class="a-modal__overlay" data-close></div>
+    <div class="a-modal__dialog a-modal__dialog--sm" role="alertdialog" aria-modal="true">
+      <div class="a-modal__head"><h2>¿Eliminar registro?</h2></div>
+      <div class="a-modal__body"><p id="aConfirmText">Esta acción no se puede deshacer.</p></div>
+      <div class="a-modal__foot">
+        <button class="a-btn a-btn--ghost" data-close>Cancelar</button>
+        <button class="a-btn a-btn--danger" id="aConfirmYes">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="a-toast" id="aToast"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="js/firebase.js?v=4"></script>
+  <script src="js/data.js?v=4"></script>
+  <script src="js/admin.js?v=4"></script>
+</body>
+</html>

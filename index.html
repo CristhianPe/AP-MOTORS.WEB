@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP Motors — Motos, Repuestos y Servicio Técnico</title>
+  <meta name="description" content="AP Motors: distribuidor autorizado RONCO, NEXUS y SUMO en el sur del Perú. Motos, repuestos oficiales, tuning LED y servicio técnico con garantía. Cotiza y pide por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/img/logo-apmotors.png">
+  <meta name="theme-color" content="#0a1547" id="metaTheme">
+  <script>
+    /* Aplica el tema antes de pintar para evitar parpadeo */
+    (function () {
+      try {
+        var t = localStorage.getItem('apmotors-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ======= BARRA DE PROGRESO HORIZONTAL ======= -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ======= TOP BAR ======= -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span class="topbar__item" id="topbarNotice">🔥 ¡Gran inauguración! 20% OFF en servicios seleccionados.</span>
+      <span class="topbar__item" id="topbarMainBranch">📍 Sede Principal</span>
+      <span class="topbar__item topbar__item--hide" id="topbarHours">🕗 Horario</span>
+      <span class="topbar__item topbar__item--phones" id="topbarPhones"></span>
+    </div>
+  </div>
+
+  <!-- ======= HEADER ======= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#slide-inicio" class="logo" aria-label="AP Motors — Inicio" data-goto="inicio">
+        <img src="assets/img/logo-apmotors.png" alt="Logo AP Motors" class="logo__img" width="46" height="46">
+        <span class="logo__text" id="logoText">MOTORS</span>
+      </a>
+
+      <nav class="nav-h" id="navH" aria-label="Navegación principal">
+        <div class="nav-h__pill" id="navHPill"></div>
+        <a class="nav-h__link active" data-goto="inicio" href="#slide-inicio">Inicio</a>
+        <a class="nav-h__link" data-goto="promociones" href="#slide-promociones">Promociones</a>
+        <a class="nav-h__link" data-goto="tienda" href="#slide-tienda">Tienda</a>
+        <a class="nav-h__link" data-goto="servicios" href="#slide-servicios">Servicios</a>
+        <a class="nav-h__link" data-goto="tuning" href="#slide-tuning">Tuning LED</a>
+        <a class="nav-h__link" data-goto="cotizador" href="#slide-cotizador">Cotizador</a>
+        <a class="nav-h__link" data-goto="sedes" href="#slide-sedes">Sedes</a>
+        <a class="nav-h__link" data-goto="contacto" href="#slide-contacto">Contacto</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema claro/oscuro">🌙</button>
+        <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito">
+          🛒 <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= CONTENIDO HORIZONTAL ======= -->
+  <main class="slider" id="slider">
+
+    <!-- SLIDE: INICIO -->
+    <section class="slide slide--inicio" id="slide-inicio" data-slide="inicio">
+      <div class="slide__scroll">
+        <div class="container" id="heroRoot"></div>
+        <div class="container" id="brandsRoot"></div>
+        <div class="container" id="whyRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: PROMOCIONES -->
+    <section class="slide slide--promos" id="slide-promociones" data-slide="promociones">
+      <div class="slide__scroll">
+        <div class="container" id="promosRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: TIENDA -->
+    <section class="slide" id="slide-tienda" data-slide="tienda">
+      <div class="slide__scroll">
+        <div class="container" id="storeRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: SERVICIOS -->
+    <section class="slide" id="slide-servicios" data-slide="servicios">
+      <div class="slide__scroll">
+        <div class="container" id="servicesRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: TUNING -->
+    <section class="slide slide--dark" id="slide-tuning" data-slide="tuning">
+      <div class="slide__scroll">
+        <div class="container" id="tuningRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: COTIZADOR -->
+    <section class="slide" id="slide-cotizador" data-slide="cotizador">
+      <div class="slide__scroll">
+        <div class="container" id="quoteRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: SEDES -->
+    <section class="slide" id="slide-sedes" data-slide="sedes">
+      <div class="slide__scroll">
+        <div class="container" id="branchesRoot"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE: CONTACTO -->
+    <section class="slide slide--cta" id="slide-contacto" data-slide="contacto">
+      <div class="slide__scroll">
+        <div class="container" id="contactRoot"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= CONTROLES DE NAVEGACIÓN HORIZONTAL ======= -->
+  <button class="nav-arrow nav-arrow--prev" id="navPrev" aria-label="Sección anterior">‹</button>
+  <button class="nav-arrow nav-arrow--next" id="navNext" aria-label="Sección siguiente">›</button>
+  <div class="dots" id="dots" role="tablist" aria-label="Indicador de secciones"></div>
+
+  <!-- ======= CARRITO LATERAL ======= -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart" id="cart" aria-label="Carrito de compras">
+    <div class="cart__head">
+      <h3>🛒 Mi Carrito de Compras</h3>
+      <button class="cart__close" id="cartClose" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="cart__body" id="cartBody"><p class="cart__empty">Tu carrito está vacío.</p></div>
+    <div class="cart__foot" id="cartFoot" hidden>
+      <div class="cart__row"><span>Subtotal:</span><strong id="cartSubtotal">S/ 0.00</strong></div>
+      <div class="cart__row cart__row--discount"><span id="cartDiscountLabel">Ahorro aplicado:</span><strong id="cartDiscount">- S/ 0.00</strong></div>
+      <div class="cart__row cart__row--total"><span>Total Estimado:</span><strong id="cartTotal">S/ 0.00</strong></div>
+      <p class="cart__note">Al confirmar tu pedido serás redirigido a WhatsApp del taller oficial para concretar stock, método de pago y sede de recojo.</p>
+      <button class="btn btn--whatsapp btn--block btn--glow-green" id="cartCheckout">
+        <svg class="icon-wa" viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.476-.15-.677.15-.2.3-.777.978-.953 1.179-.175.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.787-1.677-2.088-.175-.3-.019-.463.132-.613.136-.135.301-.351.452-.527.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.527-.075-.15-.677-1.631-.928-2.233-.244-.586-.493-.506-.677-.516l-.577-.01c-.2 0-.527.075-.803.376-.276.3-1.053 1.028-1.053 2.507 0 1.479 1.078 2.908 1.229 3.109.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.635.722.23 1.38.197 1.9-.12.58-.352 1.78-1.08 2.03-2.122.251-1.042.251-1.934.176-2.122-.075-.188-.276-.289-.577-.439zM12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.94.55 3.75 1.5 5.28L2 22l4.88-1.47A9.94 9.94 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.27c-1.63 0-3.14-.49-4.41-1.33l-.32-.21-3.27.99 1-3.19-.23-.36a8.23 8.23 0 0 1-1.27-4.17c0-4.57 3.72-8.27 8.28-8.27 4.56 0 8.28 3.7 8.28 8.27 0 4.57-3.72 8.27-8.28 8.27z"/></svg>
+        <span>Confirmar Pedido vía WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Botón flotante WhatsApp con Tooltip interactivo -->
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <span class="wa-float__tooltip">¿Deseas cotizar? Chatea con un asesor</span>
+    <span class="wa-float__pulse"></span>
+    <svg class="wa-float__icon" viewBox="0 0 24 24" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.476-.15-.677.15-.2.3-.777.978-.953 1.179-.175.2-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.787-1.677-2.088-.175-.3-.019-.463.132-.613.136-.135.301-.351.452-.527.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.527-.075-.15-.677-1.631-.928-2.233-.244-.586-.493-.506-.677-.516l-.577-.01c-.2 0-.527.075-.803.376-.276.3-1.053 1.028-1.053 2.507 0 1.479 1.078 2.908 1.229 3.109.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.635.722.23 1.38.197 1.9-.12.58-.352 1.78-1.08 2.03-2.122.251-1.042.251-1.934.176-2.122-.075-.188-.276-.289-.577-.439zM12.04 2C6.51 2 2.03 6.48 2.03 12c0 1.94.55 3.75 1.5 5.28L2 22l4.88-1.47A9.94 9.94 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10zm0 18.27c-1.63 0-3.14-.49-4.41-1.33l-.32-.21-3.27.99 1-3.19-.23-.36a8.23 8.23 0 0 1-1.27-4.17c0-4.57 3.72-8.27 8.28-8.27 4.56 0 8.28 3.7 8.28 8.27 0 4.57-3.72 8.27-8.28 8.27z"/></svg>
+  </a>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Función auxiliar para verificar si el usuario es administrador autenticado en Firebase Auth
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Configuración global del sitio (nombre, teléfonos, banners, descuentos)
+    match /settings/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Marcas distribuidas (Ronco, Nexus, Sumo, etc.)
+    match /brands/{brandId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Categorías de productos (Motos, Repuestos, Tuning, etc.)
+    match /categories/{catId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Catálogo de productos y repuestos
+    match /products/{prodId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Servicios mecánicos y de taller
+    match /services/{servId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Paquetes y componentes de Tuning LED
+    match /tuning/{tuneId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Promociones, campañas y sorteos
+    match /promotions/{promoId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Sedes físicas y mapas
+    match /branches/{branchId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Histórico de cotizaciones y pedidos enviados desde la web
+    match /quotes/{quoteId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Compatibilidad con documento legado data/main
+    match /data/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

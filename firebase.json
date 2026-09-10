@@ -1,0 +1,27 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "firestore.rules",
+      "storage.rules",
+      "database.rules.json",
+      "README.md",
+      "**/node_modules/**",
+      "**/.*"
+    ],
+    "rewrites": [
+      { "source": "/admin", "destination": "/admin.html" },
+      { "source": "/login", "destination": "/login.html" },
+      { "source": "/404", "destination": "/404.html" },
+      { "source": "**", "destination": "/index.html" }
+    ]
+  }
+}
