@@ -1,7 +1,7 @@
-# 🏍️ AP Motors — Plataforma Comercial Reactiva & Panel Administrativo en Tiempo Real
+﻿# 🏍️ AP Motors — Reactive E-Commerce Platform & Real-Time Admin Suite
 
-[![Demo en Vivo](https://img.shields.io/badge/⚡%20DEMO%20EN%20VIVO-Visitar%20Sitio%20Web-00C853?style=for-the-badge&logo=googlechrome&logoColor=white)](https://apmotors-6bece.web.app)
-[![Sitio Oficial](https://img.shields.io/badge/Página%20Principal-apmotors--6bece.web.app-2563EB?style=for-the-badge&logo=firebase&logoColor=white)](https://apmotors-6bece.web.app)
+[![Live Demo](https://img.shields.io/badge/⚡%20LIVE%20DEMO-Visit%20Website-00C853?style=for-the-badge&logo=googlechrome&logoColor=white)](https://apmotors-6bece.web.app)
+[![Official Website](https://img.shields.io/badge/Main%20Page-apmotors--6bece.web.app-2563EB?style=for-the-badge&logo=firebase&logoColor=white)](https://apmotors-6bece.web.app)
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B%20Modular-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/)
@@ -12,144 +12,144 @@
 [![WhatsApp API](https://img.shields.io/badge/WhatsApp-Order%20%26%20Quote%20Routing-25D366?logo=whatsapp&logoColor=white)](https://www.whatsapp.com/)
 
 > [!TIP]
-> ### 🌐 Enlace a la Plataforma Pública en Vivo
-> **Haz clic aquí para interactuar con la versión de producción desplegada:**  
+> ### 🌐 Live Production Platform for Reviewers
+> **Click here to interact directly with the live deployed production version:**  
 > 👉 **[https://apmotors-6bece.web.app](https://apmotors-6bece.web.app)**  
 > 
-> *Acceso directo a la página principal: explora el catálogo dinámico de motocicletas, la ficha técnica interactiva, el **Cotizador 3.0** (cálculo de cuotas y financiamiento) y el carrito de cotizaciones en tiempo real sin requerir inicio de sesión.*
+> *Direct access to the public main page: explore the dynamic motorcycle catalog, interactive technical specifications, the **Cotizador 3.0** (financing installment calculator), and real-time quote cart without requiring credentials or login.*
 
-Bienvenido a **AP Motors**, una plataforma web comercial de alto rendimiento diseñada para la exhibición, cotización interactiva y gestión integral de inventario de concesionarias automotrices y de motocicletas (distribuidores autorizados de **RONCO**, **NEXUS** y **SUMO** en el sur del Perú).
+Welcome to **AP Motors**, a high-performance commercial web platform built for multi-brand automotive and motorcycle dealerships (authorized dealers for **RONCO**, **NEXUS**, and **SUMO** in Southern Peru).
 
-El sistema combina un **portal público ultra-rápido** para clientes con un **panel administrativo centralizado (CRUD)** en tiempo real, respaldado por la infraestructura serverless de **Google Firebase (Firestore, Auth y Hosting)** y un motor de resiliencia local con soporte offline de 0ms.
+The system seamlessly integrates an **ultra-fast public client portal** with a centralized, real-time administrative **CRUD dashboard**, powered by Google Firebase serverless cloud services (**Firestore, Auth, and Hosting**) and an offline-resilient local cache architecture delivering 0ms response times.
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## 🏛️ System Architecture
 
 ```mermaid
 flowchart TD
-    subgraph CLIENTES["👤 PORTAL PÚBLICO (index.html)"]
-        UI1["🏍️ Catálogo Dinámico de Motos, Repuestos y Tuning"]
-        UI2["📊 Cotizador 3.0: Cálculo Financiero de Cuotas"]
-        UI3["🛒 Carrito Interactivo con Despacho a WhatsApp"]
-        UI4["📍 Localizador de Sedes Físicas con Google Maps"]
+    subgraph CLIENTS["👤 PUBLIC PORTAL (index.html)"]
+        UI1["🏍️ Dynamic Catalog: Motorcycles, Spare Parts & Tuning"]
+        UI2["📊 Cotizador 3.0: Financial Installment Calculator"]
+        UI3["🛒 Interactive Quote Cart with Structured WhatsApp Routing"]
+        UI4["📍 Physical Branches Locator with Google Maps Integration"]
     end
 
-    subgraph AUTH_SEC["🔐 SEGURIDAD & CONTROL DE ACCESO"]
-        A1["Pantalla de Acceso (login.html)"]
-        A2["Guardianes de Sesión (onAuthStateChanged)"]
-        A3["Reglas de Acceso Granular (firestore.rules)"]
+    subgraph AUTH_SEC["🔐 SECURITY & ACCESS CONTROL"]
+        A1["Authentication Gate (login.html)"]
+        A2["Session Guards (onAuthStateChanged)"]
+        A3["Granular Security Rules (firestore.rules)"]
     end
 
-    subgraph ADMIN_PANEL["👨‍💼 PANEL ADMINISTRATIVO (admin.html)"]
-        AD1["⚙️ Campañas, Banners, Horarios y Descuentos Globales"]
-        AD2["📦 CRUD Modular: Marcas, Categorías, Productos y Repuestos"]
-        AD3["🔧 Gestión de Servicios Mecánicos y Paquetes Tuning LED"]
-        AD4["🏷️ Administración de Promociones, Sorteos y Sedes"]
-        AD5["🌱 Motor de Sembrado (Seeder Inicial) y Reset Atómico"]
+    subgraph ADMIN_PANEL["👨‍💼 ADMINISTRATIVE DASHBOARD (admin.html)"]
+        AD1["⚙️ Global Campaigns, Banners, Schedules & Store Discounts"]
+        AD2["📦 Modular CRUD: Brands, Categories, Products & Parts"]
+        AD3["🔧 Workshop Services & Custom LED Tuning Packages"]
+        AD4["🏷️ Promotions, Raffles & Physical Branches Management"]
+        AD5["🌱 Database Seeding Engine & Atomic Reset"]
     end
 
-    subgraph CLOUD_SERVICES["🔥 INFRAESTRUCTURA CLOUD (Google Firebase)"]
-        F1[("Colecciones Firestore: brands, products, tuning, branches...")]
-        F2["Firebase Auth (Gestión de Administradores)"]
-        F3["Firebase Storage (Assets Multimedia y Comprobantes)"]
+    subgraph CLOUD_SERVICES["🔥 CLOUD INFRASTRUCTURE (Google Firebase)"]
+        F1[("Firestore Collections: brands, products, tuning, branches...")]
+        F2["Firebase Auth (Operator & Administrator Accounts)"]
+        F3["Firebase Storage (Media Assets & Vouchers)"]
     end
 
-    subgraph CACHE_LAYER["💾 CAPA DE PERSISTENCIA LOCAL (Resiliencia)"]
-        L1["localStorage (Caché 0ms y Soporte Offline Inmediato)"]
+    subgraph CACHE_LAYER["💾 LOCAL PERSISTENCE LAYER (Resilience)"]
+        L1["localStorage (0ms Instant Cache & Offline Fallback)"]
     end
 
-    %% Conexiones y Flujos
-    CLIENTES -->|"Lectura Reactiva (onSnapshot)"| F1
-    CLIENTES <-->|"Caché Local Inmediato"| CACHE_LAYER
-    CLIENTES -->|"Despacho Automatizado"| UI3
-    A1 -->|"Validación de Credenciales"| F2
-    F2 -->|"Autorización y Redirección"| ADMIN_PANEL
-    ADMIN_PANEL -->|"Escritura Segura (isAdmin)"| F1
-    ADMIN_PANEL -->|"Carga de Imágenes"| F3
-    ADMIN_PANEL <-->|"Sincronización Local"| CACHE_LAYER
+    %% Connections & Flows
+    CLIENTS -->|"Reactive Subscription (onSnapshot)"| F1
+    CLIENTS <-->|"Instant Local Cache"| CACHE_LAYER
+    CLIENTS -->|"Automated Order Dispatch"| UI3
+    A1 -->|"Credential Validation"| F2
+    F2 -->|"Authorization & Route Forwarding"| ADMIN_PANEL
+    ADMIN_PANEL -->|"Secure Writes (isAdmin)"| F1
+    ADMIN_PANEL -->|"Media Uploads"| F3
+    ADMIN_PANEL <-->|"Local Mirroring"| CACHE_LAYER
 ```
 
 ---
 
-## 🌟 Capacidades Técnicas & Módulos Destacados
+## 🌟 Technical Highlights & Core Modules
 
-### 1. 🏍️ Catálogo Comercial Reactivo en Tiempo Real
-- **Sincronización `onSnapshot`**: Cualquier modificación en precios, productos o promociones realizada por el administrador se refleja instantáneamente en las pantallas de los usuarios sin necesidad de recargar la página.
-- **Filtros Dinámicos**: Filtrado multi-criterio por marcas oficiales, categorías (Motos de Trabajo, Deportivas, Repuestos Oficiales, Tuning LED), rangos de precios y disponibilidad.
-- **Modales de Inspección Técnica**: Fichas técnicas completas con especificaciones de motor (cilindrada cc), tipo de combustible, garantía oficial de 1 año y botones de contacto directo por producto.
+### 1. 🏍️ Reactive Real-Time Commercial Catalog
+- **`onSnapshot` Bidirectional Synchronization**: Any modification to pricing, inventory, or promotional banners executed from the admin dashboard propagates instantly to connected client sessions without page refreshes.
+- **Multi-Criteria Filtering**: Filter vehicles and inventory by authorized brand, category (Work Motos, Sport, Official Spare Parts, LED Tuning Kits), price ranges, and real-time stock availability.
+- **Technical Specification Modals**: Interactive detail overlays displaying engine displacement (cc), fuel system, official 1-year warranty terms, and direct WhatsApp inquiry triggers per vehicle.
 
-### 2. 📊 Cotizador Financiero 3.0 & Ruteo a WhatsApp
-- **Simulador de Financiamiento en Vivo**: Los usuarios pueden interactuar con sliders dinámicos para calcular cuotas mensuales, inicial mínima recomendada y plazos de amortización.
-- **Generador de Enlace WhatsApp Estructurado**: Convierte la cotización seleccionada en un mensaje preformateado codificado en URL listo para ser atendido por el equipo de ventas:
+### 2. 📊 Cotizador 3.0: Financial Installment Simulator & WhatsApp Dispatch
+- **Live Credit & Financing Calculator**: Dynamic sliders allow potential buyers to calculate down payments (*inicial mínima*), payment schedules (6, 12, 18, 24 months), and estimated monthly fees.
+- **Structured URL-Encoded WhatsApp Routing**: Compiles the selected financing parameters into a clean, pre-filled WhatsApp message routed directly to customer service agents:
   ```text
-  Hola AP MOTORS, deseo cotizar:
-  - Modelo: Ronco Pantera 200cc
-  - Precio de Lista: S/ 5,800
-  - Inicial propuesta: S/ 1,500
-  - Plan de cuotas: 12 meses
+  Hello AP MOTORS, I would like to request a quote:
+  - Model: Ronco Pantera 200cc
+  - List Price: S/ 5,800
+  - Down Payment: S/ 1,500
+  - Term: 12 monthly installments
   ```
 
-### 3. 🛒 Carrito de Cotización y Compra
-- Persistencia del carrito en el navegador.
-- Resumen en tiempo real de artículos seleccionados, cálculo de descuentos promocionales de inauguración (ej. 20% OFF) y consolidación del pedido para su despacho directo vía WhatsApp.
+### 3. 🛒 Interactive Quote & Order Cart
+- Persistent client-side cart leveraging browser storage.
+- Real-time order summary calculation including grand opening promotional discounts (e.g., 20% OFF), dynamic taxes, and structured checkout routing directly via WhatsApp.
 
-### 4. 👨‍💼 Panel de Administración Centralizado (CRUD Enterprise)
-- **Control Total sin Código**: El administrador gestiona de punta a punta:
-  - **Marcas y Categorías**: Creación y ordenamiento jerárquico.
-  - **Productos y Repuestos**: Control de stock, precios regulares vs. precios de oferta, especificaciones técnicas y URLs multimedia.
-  - **Servicios de Taller & Tuning**: Catálogo de mantenimiento preventivo, afinamiento electrónico, instalación de barras LED y kits de iluminación.
-  - **Sedes y Mapas**: Administración de direcciones físicas, horarios de atención y georreferenciación integrada con Google Maps Embed.
-  - **Configuración de Campaña**: Modificación en vivo del banner de alerta superior, porcentaje de descuento general y teléfonos de atención.
-- **Motor de Sembrado (Initial Seeder)**: Si la base de datos se encuentra vacía, el sistema ofrece una inicialización con 1 clic de datos de catálogo preconfigurados.
+### 4. 👨‍💼 Enterprise Admin Suite (Zero-Code CRUD Control)
+- **Full Operational Governance**:
+  - **Brands & Categories**: Create and adjust hierarchical display priority.
+  - **Products & Spare Parts**: Manage list prices, promotional prices, technical specs, and media assets.
+  - **Workshop Services & Custom Tuning**: Maintain preventive maintenance schedules, electronic tuning options, and custom LED installations.
+  - **Branches & Mapping**: Physical location addresses, business hours, and automated Google Maps embed coordinates.
+  - **Global Campaign Controls**: Instant updates to top notification banners, global discount percentages, and customer hotline numbers.
+- **Automated Seeding Engine**: One-click initial seeder that initializes Firestore with production-ready default datasets if empty.
 
-### 5. ⚡ Rendimiento 0ms y Resiliencia Offline
-- Arquitectura de caché híbrida: los datos se leen inmediatamente desde `localStorage` garantizando una experiencia de usuario instantánea (**First Contentful Paint < 0.4s**) mientras se establece la conexión reactiva con Firestore en segundo plano.
-
----
-
-## 🔒 Arquitectura de Seguridad & Privacidad
-
-- **Principio de Mínimo Privilegio (*Least Privilege*)**: La base de datos Firestore está protegida con reglas de seguridad declarativas (`firestore.rules`):
-  - **Lectura Pública (`allow read: if true`)**: Permite a los clientes consultar el catálogo, sedes y promociones sin autenticación.
-  - **Escritura Restringida (`allow write: if isAdmin()`)**: Solo los usuarios con sesión verificada en Firebase Auth pueden crear, editar o eliminar registros.
-- **Protección de Rutas (Auth Guards)**: Las páginas administrativas (`admin.html`) verifican reactivamente el estado de autenticación mediante `firebase.auth().onAuthStateChanged`. Si un usuario no autenticado intenta acceder, es redirigido inmediatamente a `/login.html`.
-- **Sanitización de Datos en Portafolio**: El repositorio no contiene credenciales de servicio administrativas privadas (`serviceAccountKey.json`), llaves PEM ni números personales de clientes; todas las entidades expuestas utilizan identificadores y formatos demostrativos.
+### 5. ⚡ 0ms Latency & Offline Fallback
+- Hybrid caching strategy: catalog data loads instantly from `localStorage`, ensuring a near-instant First Contentful Paint (**FCP < 0.4s**) while Firestore establishes its background real-time listener.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🔒 Security & Privacy Architecture
+
+- **Principle of Least Privilege (RBAC)**: Firestore database access is governed by strict declarative rules (`firestore.rules`):
+  - **Public Read Access (`allow read: if true`)**: Enables unrestricted client viewing of catalog inventory, branch locations, and active campaigns.
+  - **Restricted Write Access (`allow write: if isAdmin()`)**: Mutations (create, update, delete) require a cryptographically verified token from Firebase Auth.
+- **Client Route Guards**: Protected administration views (`admin.html`) observe authentication states via `firebase.auth().onAuthStateChanged` and redirect unauthenticated sessions to `/login.html`.
+- **Portfolio Data Sanitization**: The repository excludes all private backend service keys (`serviceAccountKey.json`), PEM certificates, and personal client contact data. All public-facing data points use standard demo representations.
+
+---
+
+## 📁 Project Structure
 
 ```text
 apmotors-web/
-├── index.html                  # Portal público comercial y catálogo reactivo
-├── login.html                  # Portal de autenticación segura (Firebase Auth)
-├── admin.html                  # Panel de administración central (CRUD completo)
-├── 404.html                    # Pantalla de error amigable personalizada
-├── firebase.json               # Configuración de Firebase Hosting, headers y rewrites
-├── .firebaserc                 # Vinculación del proyecto en Firebase CLI
-├── firestore.rules             # Reglas de seguridad granulares para Firestore
-├── storage.rules               # Reglas de control de acceso para Firebase Storage
-├── database.rules.json         # Reglas de respaldo RTDB
-├── .gitignore                  # Exclusión estricta de cachés, logs y credenciales
-├── LICENSE                     # Licencia de exhibición profesional de portafolio
+├── index.html                  # Public storefront and reactive catalog
+├── login.html                  # Secure admin authentication (Firebase Auth)
+├── admin.html                  # Comprehensive administrative CRUD dashboard
+├── 404.html                    # Custom branded 404 error page
+├── firebase.json               # Firebase Hosting CDN configuration, headers & rewrites
+├── .firebaserc                 # Firebase CLI project linkage
+├── firestore.rules             # Declarative security rules for Firestore
+├── storage.rules               # Granular access control rules for Firebase Storage
+├── database.rules.json         # Realtime Database fallback rules
+├── .gitignore                  # Strict exclusion of build caches, logs & credentials
+├── LICENSE                     # Professional portfolio exhibition license
 │
-├── css/                        # Estilos modulares desacoplados
-│   ├── styles.css              # Sistema visual de la web pública (responsive, dark theme)
-│   ├── admin.css               # Estilos del panel administrativo, tablas y modales
-│   └── login.css               # Diseño de la tarjeta de inicio de sesión
+├── css/                        # Modular CSS system
+│   ├── styles.css              # Public storefront styles (responsive, dark theme)
+│   ├── admin.css               # Administrative dashboard, data tables & modals
+│   └── login.css               # Login authentication card styling
 │
-├── js/                         # Lógica JavaScript (Vanilla ES6+ Modular)
-│   ├── firebase.js             # Inicialización de servicios Firebase (Auth, Firestore, Storage)
-│   ├── firebase.config.example.js # Plantilla de configuración de entorno
-│   ├── data.js                 # Capa de datos modular, sincronización onSnapshot y caché local
-│   ├── main.js                 # Lógica interactiva pública, cotizador 3.0, filtros y carrito
-│   ├── admin.js                # Lógica del panel CRUD, validaciones y motor de sembrado
-│   └── login.js                # Manejo de sesiones, control de errores y redirecciones
+├── js/                         # Vanilla ES6+ Modular Architecture
+│   ├── firebase.js             # Firebase SDK client initialization (Auth, Firestore, Storage)
+│   ├── firebase.config.example.js # Environment credential template
+│   ├── data.js                 # Data access layer, onSnapshot listener & local cache
+│   ├── main.js                 # Public UI logic, Cotizador 3.0, filters & cart
+│   ├── admin.js                # Admin CRUD operations, form validation & database seeder
+│   └── login.js                # Auth state management, error handling & redirection
 │
-└── assets/                     # Recursos gráficos y multimedia
+└── assets/                     # Graphic resources and media assets
     └── img/
-        ├── logo-apmotors.png   # Logotipo vectorial de la marca
+        ├── logo-apmotors.png   # Brand vector logo
         ├── promo-descuento-20.jpg
         ├── promo-motos-financiamiento.jpg
         └── promo-sorteo-moto.jpg
@@ -157,54 +157,54 @@ apmotors-web/
 
 ---
 
-## 🚀 Puesta en Marcha Local y Despliegue
+## 🚀 Getting Started & Deployment
 
-### Prerrequisitos
-- Navegador web moderno (Chrome, Edge, Firefox, Safari).
-- Node.js (opcional, para servir localmente o utilizar Firebase CLI).
+### Prerequisites
+- Modern web browser (Chrome, Edge, Firefox, Safari).
+- Node.js (optional, only if using local dev servers or the Firebase CLI).
 
-### 🌐 1. Demostración Rápida en Producción (Cloud CDN)
-Para que reclutadores y revisores técnicos puedan evaluar la experiencia completa sin necesidad de clonar ni configurar dependencias locales:
-👉 **[Ingresar a la Página Principal en Vivo: https://apmotors-6bece.web.app](https://apmotors-6bece.web.app)**
+### 🌐 1. Live Production Demo (Cloud CDN)
+To inspect and evaluate the full user journey without cloning or local setup:
+👉 **[Access the Live Main Page: https://apmotors-6bece.web.app](https://apmotors-6bece.web.app)**
 
-### 💻 2. Ejecución en Entorno Local
-Puedes ejecutar el proyecto con cualquier servidor estático local:
+### 💻 2. Running in a Local Environment
+You can serve the project using any local HTTP static server:
 
 ```bash
-# Opción A: Con npx serve
+# Option A: Using npx serve
 npx serve .
 
-# Opción B: Con Python
+# Option B: Using Python
 python -m http.server 8080
 
-# Opción C: Usando la extensión Live Server de VS Code sobre index.html
+# Option C: Using VS Code / Cursor "Live Server" extension on index.html
 ```
 
-Abre en tu navegador la página principal:
-- **Página Principal**: `http://localhost:8080` (o `http://localhost:8080/index.html`)
+Open your browser to the main page:
+- **Main Page**: `http://localhost:8080` (or `http://localhost:8080/index.html`)
 
-### 🚀 3. Despliegue a Producción (Firebase Hosting)
-Si deseas desplegar tu propia instancia en Firebase:
+### 🚀 3. Deploying to Firebase Hosting
+To deploy to your own Firebase infrastructure:
 
 ```bash
-# 1. Instala Firebase CLI
+# 1. Install Firebase CLI
 npm install -g firebase-tools
 
-# 2. Inicia sesión en Firebase
+# 2. Login to Firebase
 firebase login
 
-# 3. Despliega la aplicación completa (Hosting + Reglas)
+# 3. Deploy Hosting and Security Rules
 firebase deploy
 ```
 
 ---
 
-## 📄 Licencia y Propiedad Intelectual
+## 📄 License & Intellectual Property
 
-**Copyright © 2026 Cristhian PE — AP Motors. Todos los derechos reservados.**
+**Copyright © 2026 Cristhian PE — AP Motors. All rights reserved.**
 
-Este proyecto se publica **exclusivamente con fines de exhibición técnica, demostración arquitectónica y evaluación profesional para reclutadores**. Queda prohibida su reproducción comercial no autorizada o distribución sin previo consentimiento por escrito del autor. Para más detalles, consulta el archivo [`LICENSE`](LICENSE).
+This repository is published **strictly for technical exhibition, architectural demonstration, and professional evaluation by recruiters and hiring managers**. Unauthorized commercial duplication, scraping, or redistribution of this software or its source code is strictly prohibited. For additional details, refer to the [`LICENSE`](LICENSE) file.
 
 ---
 
-© 2026 **AP Motors** • Desarrollado por **Cristhian PE** • Exhibición de Portafolio Profesional.
+© 2026 **AP Motors** • Developed by **Cristhian PE** • Professional Portfolio Showcase.
