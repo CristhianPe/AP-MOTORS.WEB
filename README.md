@@ -1,4 +1,7 @@
-﻿# 🏍️ AP Motors — Plataforma Comercial Reactiva & Panel Administrativo en Tiempo Real
+# 🏍️ AP Motors — Plataforma Comercial Reactiva & Panel Administrativo en Tiempo Real
+
+[![Demo en Vivo](https://img.shields.io/badge/⚡%20DEMO%20EN%20VIVO-Visitar%20Sitio%20Web-00C853?style=for-the-badge&logo=googlechrome&logoColor=white)](https://apmotors-6bece.web.app)
+[![Sitio Oficial](https://img.shields.io/badge/Página%20Principal-apmotors--6bece.web.app-2563EB?style=for-the-badge&logo=firebase&logoColor=white)](https://apmotors-6bece.web.app)
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B%20Modular-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/)
@@ -7,6 +10,13 @@
 [![Firebase Auth](https://img.shields.io/badge/Firebase-Authentication-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting%20CDN-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![WhatsApp API](https://img.shields.io/badge/WhatsApp-Order%20%26%20Quote%20Routing-25D366?logo=whatsapp&logoColor=white)](https://www.whatsapp.com/)
+
+> [!TIP]
+> ### 🌐 Enlace a la Plataforma Pública en Vivo
+> **Haz clic aquí para interactuar con la versión de producción desplegada:**  
+> 👉 **[https://apmotors-6bece.web.app](https://apmotors-6bece.web.app)**  
+> 
+> *Acceso directo a la página principal: explora el catálogo dinámico de motocicletas, la ficha técnica interactiva, el **Cotizador 3.0** (cálculo de cuotas y financiamiento) y el carrito de cotizaciones en tiempo real sin requerir inicio de sesión.*
 
 Bienvenido a **AP Motors**, una plataforma web comercial de alto rendimiento diseñada para la exhibición, cotización interactiva y gestión integral de inventario de concesionarias automotrices y de motocicletas (distribuidores autorizados de **RONCO**, **NEXUS** y **SUMO** en el sur del Perú).
 
@@ -153,7 +163,11 @@ apmotors-web/
 - Navegador web moderno (Chrome, Edge, Firefox, Safari).
 - Node.js (opcional, para servir localmente o utilizar Firebase CLI).
 
-### 1. Ejecución Local Inmediata
+### 🌐 1. Demostración Rápida en Producción (Cloud CDN)
+Para que reclutadores y revisores técnicos puedan evaluar la experiencia completa sin necesidad de clonar ni configurar dependencias locales:
+👉 **[Ingresar a la Página Principal en Vivo: https://apmotors-6bece.web.app](https://apmotors-6bece.web.app)**
+
+### 💻 2. Ejecución en Entorno Local
 Puedes ejecutar el proyecto con cualquier servidor estático local:
 
 ```bash
@@ -163,14 +177,13 @@ npx serve .
 # Opción B: Con Python
 python -m http.server 8080
 
-# Opción C: Usando la extensión Live Server de VS Code / Cursor sobre index.html
+# Opción C: Usando la extensión Live Server de VS Code sobre index.html
 ```
 
-Abre en tu navegador:
-- Portal Público: `http://localhost:8080` (o `index.html`)
-- Login de Administrador: `http://localhost:8080/login.html`
+Abre en tu navegador la página principal:
+- **Página Principal**: `http://localhost:8080` (o `http://localhost:8080/index.html`)
 
-### 2. Despliegue a Producción (Firebase Hosting)
+### 🚀 3. Despliegue a Producción (Firebase Hosting)
 Si deseas desplegar tu propia instancia en Firebase:
 
 ```bash
