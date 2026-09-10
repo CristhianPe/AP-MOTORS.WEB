@@ -1,4 +1,14 @@
-﻿# 🏍️ AP Motors — Reactive E-Commerce Platform & Real-Time Admin Suite
+# 🏍️ AP Motors — Reactive E-Commerce Platform & Real-Time Admin Suite
+
+<p align="left">
+  <a href="README.md"><img src="https://img.shields.io/badge/Language-English-blue?style=for-the-badge&logo=googletranslate&logoColor=white" alt="English"/></a>
+  <a href="README.de.md"><img src="https://img.shields.io/badge/Sprache-Deutsch-FFCC00?style=for-the-badge&logo=googletranslate&logoColor=black" alt="Deutsch"/></a>
+  <a href="README.es.md"><img src="https://img.shields.io/badge/Idioma-Espa%C3%B1ol-EA4335?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Español"/></a>
+</p>
+
+> 🌐 **Available Languages / Idiomas / Sprachen:** [🇬🇧 English](README.md) • [🇩🇪 Deutsch](README.de.md) • [🇪🇸 Español](README.es.md)
+
+---
 
 [![Live Demo](https://img.shields.io/badge/⚡%20LIVE%20DEMO-Visit%20Website-00C853?style=for-the-badge&logo=googlechrome&logoColor=white)](https://apmotors-6bece.web.app)
 [![Official Website](https://img.shields.io/badge/Main%20Page-apmotors--6bece.web.app-2563EB?style=for-the-badge&logo=firebase&logoColor=white)](https://apmotors-6bece.web.app)
@@ -133,6 +143,9 @@ apmotors-web/
 ├── database.rules.json         # Realtime Database fallback rules
 ├── .gitignore                  # Strict exclusion of build caches, logs & credentials
 ├── LICENSE                     # Professional portfolio exhibition license
+├── README.md                   # Primary documentation in English
+├── README.de.md                # Comprehensive documentation in German
+├── README.es.md                # Comprehensive documentation in Spanish
 │
 ├── css/                        # Modular CSS system
 │   ├── styles.css              # Public storefront styles (responsive, dark theme)
